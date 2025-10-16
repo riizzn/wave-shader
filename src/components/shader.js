@@ -2,7 +2,9 @@ export const vertex = `
 uniform float uAmplitude;
 uniform float uWaveLength;
 uniform float uTime;
+varying vec2 vUv;
 void main(){
+vUv = uv;
 
 vec3 newPosition = position;
 
@@ -13,7 +15,11 @@ newPosition.z += wave;
 }
 `;
 
+
 export const fragment = `
+uniform sampler2D uTexture;
+varying vec2 vUv;
 void main(){
-gl_FragColor=vec4(1.,0.,0.,1.);
+vec4 color= texture(uTexture , vUv);
+gl_FragColor= color;
 }`;
