@@ -19,7 +19,10 @@ newPosition.z += wave;
 export const fragment = `
 uniform sampler2D uTexture;
 varying vec2 vUv;
+uniform vec2 vUvScale;
+
 void main(){
-vec4 color= texture(uTexture , vUv);
+vec2 uv = (vUv - 0.5) * vUvScale + 0.5;
+vec4 color= texture(uTexture , uv);
 gl_FragColor= color;
 }`;

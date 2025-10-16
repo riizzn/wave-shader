@@ -2,10 +2,10 @@ import { Canvas } from '@react-three/fiber'
 import React from 'react'
 import Model from './Model'
 
-const Scene = () => {
+const Scene = ({scrollProgress}) => {
   return (
     <Canvas>
-        <Model/>
+        <Model scrollProgress={scrollProgress}/>
     </Canvas>
   )
 }
